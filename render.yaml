@@ -1,0 +1,16 @@
+services:
+  - type: worker
+    name: snow-sponsor-bot
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: BOT_DATABASE
+        value: /var/data/bot_data.sqlite3
+    disk:
+      name: sponsor-bot-data
+      mountPath: /var/data
+      sizeGB: 1

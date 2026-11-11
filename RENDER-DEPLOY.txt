@@ -1,0 +1,14 @@
+Render deployment package
+
+This ZIP cannot be uploaded directly to a Render Worker. Extract it, upload the
+source files to a GitHub repository, then connect that repository to your
+existing Render Worker (Settings > Build & Deploy).
+
+Build command: pip install -r requirements.txt
+Start command: python bot.py
+Environment variable: DISCORD_TOKEN (set the secret in the Render dashboard)
+Database path: /var/data/bot_data.sqlite3
+Persistent disk: mount at /var/data (at least 1 GB)
+
+Never publish your real .env file or bot_data.sqlite3. The included .env.example
+contains placeholders only. Existing bot data is not included in this package.
